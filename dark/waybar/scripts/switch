@@ -1,0 +1,70 @@
+#!/usr/bin/python
+
+import time
+import os
+import json
+import sys
+import subprocess
+
+TMP = lambda i: f'/tmp/waybar-custom-switch-{i}'
+
+waybar = os.path.expanduser("~/.config/waybar")
+
+def get(i):
+    try:
+        with open(TMP(i), 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        return ''
+
+def set(i, value):
+    with open(TMP(i), 'w') as f:
+        f.write(value)
+
+def remove(i):
+    try:
+        os.remove(TMP(i))
+    except FileNotFoundError:
+        pass
+
+def toggle(i):
+    if get(i):
+        set(i, '')
+        return False
+    else:
+        set(i, 'on')
+        return True
+    
+
+argmap = {
+    'get': lambda: get(sys.argv[2]),
+    'set': lambda: set(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'on'),
+    'remove': lambda: remove(sys.argv[2]),
+    'toggle': lambda: toggle(sys.argv[2]),
+}
+
+def waybar_parse(state):
+    if state:
+        return {
+            "text": "theme",
+            "class": "on",
+            "tooltip": "on"
+        }
+    else:
+        return {
+            "text": "theme",
+            "class": "off",
+            "tooltip": "off"
+        }
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        if sys.argv[1] == 'loop':
+            sys.argv.pop(1)
+            while 1:
+                print(json.dumps(waybar_parse(argmap[sys.argv[1]]() or ''),ensure_ascii=True),flush=True)
+                time.sleep(0.1)
+        else:
+            print(json.dumps(waybar_parse(argmap[sys.argv[1]]() or '')),flush=True)
+    else:
+        print('Usage: switch.py <get|set|toggle> [index] [value]')

@@ -1,0 +1,78 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 50, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 5, // Gaps between modules (4px)
+    // Choose the order of the modules
+    // "margin-left":25,
+    // "margin-right":25,
+    "margin-bottom":-11,
+    //"margin-top":5,
+    "modules-left": ["wlr/workspaces"],
+    "modules-right": [ "tray","custom/switch","clock"],
+    "modules-center": ["custom/info_pill"],
+    // Modules configuration
+
+
+    // custom modules ////////////////
+    "custom/switch": {
+        "return-type": "json",
+        "exec": "python -u ~/.config/hypr/themes/print/dark/waybar/scripts/switch loop get b1",
+        "on-click": "hyprtheme apply print:light && python -u ~/.config/hypr/themes/print/dark/waybar/scripts/switch toggle b1"
+    },
+    "custom/info_pill": {
+        "return-type": "json",
+        // "format":"{}",
+        "exec": "~/.config/hypr/themes/print/dark/waybar/scripts/info_pill/start",
+        "escape":true
+    },
+    "custom/pipewire": {
+        "tooltip": false,
+        "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 2%-",
+        "max-length": 6,
+        "signal": 8,
+        "restart-interval": 0,
+        "on-click": "pavucontrol",
+        "exec": "~/.config/hypr/themes/print/dark/waybar/sound/expand pipewire-icon"
+    },
+    "custom/expand_sound": {
+        "on-click": "~/.config/hypr/themes/print/dark/waybar/sound/expand_soundbar",
+        "format": "{}",
+        "exec": "~/.config/hypr/themes/print/dark/waybar/sound/expand arrow-icon"
+    },
+    "custom/cava_test": {
+        "format": "{}",
+        "exec": "~/.config/hypr/themes/print/dark/waybar/sound/expand cava-icon"
+    },
+    "wlr/workspaces": {
+        "format": "{icon}",
+        "format-active": " {icon} ",
+        "sort-by-coordinates": true,
+        "on-click": "activate",
+        "format-icons":{
+            "1":"A",
+            "2":"B",
+            "3":"C",
+            "4":"D",
+            "5":"E",
+            "6":"F",
+            "7":"G",
+            "8":"H",
+            "9":"I",
+            "10":"J"
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 60,
+        "format": "{:%I:%M}",
+        "max-length": 25
+    }
+  }

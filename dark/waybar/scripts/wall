@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tempfile=$(mktemp);wget $(wget https://api.waifu.im/random/\?is_nsfw\=true\&selected_tags\=waifu\&full\=false\&many\=false\&gif\=false -O-  | jq -r ".[] | .[] | .url") -O- | convert - \( -clone 0 -resize 2560x1440\^ -gravity center -extent 2560x1440 -scale 50% -blur 0x2.5 -resize 200%\)\( -clone 0 -resize 2560x1440 \) -delete 0 -gravity center -compose over -composite ${tempfile}.png && swww img ${tempfile}.png --transition-step 1 --transition-fps 255 --transition-type any --transition-speed 20 && /usr/bin/rm ${tempfile}.png 

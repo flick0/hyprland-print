@@ -1,0 +1,5 @@
+[theme]
+name="dark"
+description="Dark Print theme"
+git="https://github.com/flick0"
+config="dark/dark.conf"

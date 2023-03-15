@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+THEME_DIR=$1
+
+swww init
+swww img $THEME_DIR/wall.png --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 1.5 --transition-step 255
+
+pkill waybar
+killall -3 eww
+waybar -c $THEME_DIR/waybar/config -s $THEME_DIR/waybar/style.css &
+

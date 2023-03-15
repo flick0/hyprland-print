@@ -1,0 +1,5 @@
+[theme]
+name="light"
+description="Light Print theme"
+git="https://github.com/flick0"
+config="light/light.conf"

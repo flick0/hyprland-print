@@ -1,0 +1,161 @@
+* {
+    font-family: "Fira Code","Noto Sans";
+    font-size: 16px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#window, #custom-wlr_mode, #custom-internet{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-right: 20px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    background: transparent;
+    color: #11111b/*light*/;
+}
+#workspaces{
+    background: transparent;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+
+#workspaces button{
+    border-radius: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    background: transparent;
+    margin-right: 8px;
+    border: 2px solid #ccd0da/*light*/;
+    box-shadow: #ccd0da/*light*/ 0px 0px 0px 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    transition: 0.3s all ease;
+    color: #ccd0da/*light*/;
+}
+
+#workspaces button:hover{
+    border: 2px solid #ccd0da/*light*/;
+    box-shadow: #ccd0da/*light*/ 0px 5px 0px 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    transition: 0.1s all ease;
+    color: #ccd0da/*light*/;
+}
+
+#workspaces button.active{
+    border: 2px solid #11111b/*light*/;
+    box-shadow: #11111b/*light*/ 0px 5px 0px 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    transition: 0.1s all ease;
+    color: #11111b/*light*/;
+}
+#workspaces button.active:hover{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    box-shadow: #11111b/*light*/ 0px 0px 0px 0px;
+    transition: 0.1s all ease;
+}
+
+@keyframes click {
+	0% {
+		box-shadow: #11111b/*light*/ 0px 5px 0px 0px;
+        margin-top: 17px;
+        margin-bottom: 17px;
+	}
+	100% {
+        border: #11111b/*light*/ 2px solid;
+		box-shadow: #11111b/*light*/ 0px 0px 0px 0px;
+        margin-top: 22px;
+        margin-bottom: 12px;
+	}
+}
+
+#custom-switch{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+
+    border-radius: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    background: transparent;
+    
+    color: #11111b/*light*/;
+}
+
+#custom-switch {
+    border: 2px solid #11111b/*light*/;
+    box-shadow: #11111b/*light*/ 0px 5px 0px 0px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition: 0.1s all ease;
+}
+
+#custom-switch:hover {
+    border: 2px solid #11111b/*light*/;
+    box-shadow: #11111b/*light*/ 0px 0px 0px 0px;
+    margin-top: 21px;
+    margin-bottom: 11px;
+    transition: 0.1s all ease;
+}
+
+#custom-switch.on{
+    border: 2px solid #ccd0da/*light*/;
+    box-shadow: #ccd0da/*light*/ 0px 0px 0px 0px;
+    margin-top: 21px;
+    margin-bottom: 11px;
+    transition: 0.1s all ease;
+    color: #ccd0da/*light*/;
+}
+
+#custom-switch.on:hover{
+    border: 2px solid #ccd0da/*light*/;
+    box-shadow: #ccd0da/*light*/ 0px 5px 0px 0px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition: 0.1s all ease;
+    color: #ccd0da/*light*/;
+}
+
+#clock {
+    padding-top: 12px;
+    margin-right: 20px;
+
+    background: transparent;
+    color: #11111b;
+}
+
+#custom-info_pill {
+    padding-top: 12px;
+    color: #11111b;
+    font-weight: 500;
+}
+
+
+.clock {
+    /* Variables */
+   font-size: 17px;
+   font-weight: bold;
+   border: none;
+   border-radius: 0.75em;
+   background: #000000;
+  }
+  
+.clock {
+   border: 2px solid #000000;
+   border-radius: 0.75em;
+   padding: 0.75em 1.5em;
+   background: #e8e8e8;
+   color: #000000;
+  }

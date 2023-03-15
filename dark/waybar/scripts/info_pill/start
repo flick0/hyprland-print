@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+cd ~/.config/waybar/scripts/info_pill
+
+./info_pill.py
