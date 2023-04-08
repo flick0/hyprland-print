@@ -3,3 +3,8 @@ name="dark"
 description="Dark Print theme"
 git="https://github.com/flick0"
 config="dark/dark.conf"
+
+[component.waybar]
+name="waybar"
+description="bar"
+load="dark/waybar/load"
