@@ -5,7 +5,7 @@ author="flicko"
 description="Print theme"
 git="https://github.com/flick0"
 subthemes = ["./dark.toml", "./light.toml"]
-default_subtheme = "light"
+default_subtheme = "dark"
 
 
 
